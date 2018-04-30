@@ -6,6 +6,7 @@ class AlunosMatriculados
     public $notaDaProva1;
     public $notaDaProva2;
     public $notaDeTrabalho;
+    public $mediaConstante = 6;
 
     public function __construct($matricula, $nome, $notaDaProva1, $notaDaProva2, $notaDeTrabalho)
     {
@@ -20,7 +21,21 @@ class AlunosMatriculados
         $media = (($this->notaDaProva1 * 2.5) + ($this->notaDaProva2 * 2.5) + ($this->notaDeTrabalho * 2)) / 7;
         return $media;
     }
+    public function calculaQuantoPrecisaParaProvaFinal()
+    {
+        $media = $this->calculaMedia();
+
+        if($media > $this->mediaConstante){
+            return 0;
+        }
+        else{
+            return $this->mediaConstante - $media;
+        }
+    }
 }
 
-$aluno1 = new AlunosMatriculados(123, "Henrique", 5, 8, 10);
-var_dump($aluno1, $aluno1->calculaMedia());
+$aluno1 = new AlunosMatriculados(123, "Henrique", 3, 5, 2);
+var_dump(
+    $aluno1->calculaMedia(),
+    $aluno1->calculaQuantoPrecisaParaProvaFinal()
+);
