@@ -9,14 +9,6 @@ class AlunosMatriculadosTest extends PHPUnit
     /**
      * @test
      **/
-    public function testType()
-    {
-        $aluno = new AlunosMatriculados(1231454, "Henrique", 10, 10, 10);
-        $this->assertInternalType('int', $aluno->getMatricula());
-    }
-    /**
-     * @test
-     **/
     public function deveRetornarAMediaDoAluno()
     {
         $aluno = new AlunosMatriculados(1231454, "Henrique", 10, 10, 10);
@@ -25,9 +17,17 @@ class AlunosMatriculadosTest extends PHPUnit
     /**
      * @test
      */
-    public function deveRetornarQuantoNecessitaNaProvaFinal()
+    public function deveRetornarZeroQuandoNaoNecessitaMaisNotaNaProvaFinal()
     {
         $aluno = new AlunosMatriculados(1231454, "Henrique", 10, 10, 10);
         $this->assertEquals(0, $aluno->calculaQuantoPrecisaParaProvaFinal());
+    }
+    /**
+     * @test
+     */
+    public function deveRetornarQuantosPontosNecessitaNaProvaFinal()
+    {
+        $aluno = new AlunosMatriculados(12324543, "Henrique", 3, 5, 2);
+        $this->assertEquals(2.57, $aluno->calculaQuantoPrecisaParaProvaFinal());
     }
 }

@@ -19,7 +19,7 @@ class AlunosMatriculados
     public function calculaMedia()
     {
         $media = (($this->notaDaProva1 * 2.5) + ($this->notaDaProva2 * 2.5) + ($this->notaDeTrabalho * 2)) / 7;
-        return $media;
+        return (float) number_format($media, 2);
     }
     public function calculaQuantoPrecisaParaProvaFinal()
     {
@@ -29,12 +29,8 @@ class AlunosMatriculados
             return 0;
         }
         else{
-            return $this->mediaConstante - $media;
+            return (float) number_format($this->mediaConstante - $media, 2);
         }
-    }
-    public function getMatricula()
-    {
-        return $this->matricula;
     }
 }
 
