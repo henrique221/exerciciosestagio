@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase as PHPUnit;
 
-require_once '../arquivos/alunosMatriculados.php';
+require_once './arquivos/alunosMatriculados.php';
 
 class AlunosMatriculadosTest extends PHPUnit
 {

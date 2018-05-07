@@ -15,9 +15,15 @@ class Data
     {
         if ($this->dia <= -1) {
             $this->dia = $this->dia * -1;
-            return $this->dia;
         }
-        return $this->dia;
+        if ($this->dia < 10){
+            $this->dia = sprintf("0%u", (string)$this->dia);
+        }
+        if ($this->dia > 30){
+            $this->dia = "01";
+        }
+
+        return (string)$this->dia;
     }
     public function getDia()
     {
