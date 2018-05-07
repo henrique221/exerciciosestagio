@@ -7,28 +7,17 @@ class Data
 
     public function __construct($dia, $mes, $ano)
     {
-        $this->verificaDia($dia);
-        $this->verificaMes($mes);
+        $this->dia = $dia;
+        $this->mes = $mes;
+        $this->ano = $ano;
     }
-    public function verificaDia($dia)
+    public function verificaDia()
     {
-        if ($dia <= -1) {
-            $dia = $dia * -1;
+        if ($this->dia <= -1) {
+            $this->dia = $this->dia * -1;
+            return $this->dia;
         }
-        if ($dia == 0){
-            return "Dia invalido";
-        }
-
-        switch ($dia) {
-            case ($dia > 30):
-                return "Dia maior que 30";
-            case ($dia < 10):
-                $this->dia = sprintf("0%u",(string)$dia);
-                return $this->dia;
-            case ($dia >= 10):
-                $this->dia = (string)$dia;
-                break;
-        }
+        return $this->dia;
     }
     public function getDia()
     {
@@ -61,5 +50,5 @@ class Data
     }
 }
 
-$data = new Data(25, 5, 2018);
-var_dump($data->getDia(),$data->getMes(), $data->ano);
+$data = new Data(-20, 5, 2018);
+var_dump($data->verificaDia(), $data->getMes(), $data->ano);
