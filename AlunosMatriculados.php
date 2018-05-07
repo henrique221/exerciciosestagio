@@ -16,11 +16,13 @@ class AlunosMatriculados
         $this->notaDaProva2 = $notaDaProva2;
         $this->notaDeTrabalho = $notaDeTrabalho;
     }
+
     public function calculaMedia()
     {
         $media = (($this->notaDaProva1 * 2.5) + ($this->notaDaProva2 * 2.5) + ($this->notaDeTrabalho * 2)) / 7;
         return (float) number_format($media, 2);
     }
+
     public function calculaQuantoPrecisaParaProvaFinal()
     {
         $media = $this->calculaMedia();
@@ -32,10 +34,30 @@ class AlunosMatriculados
             return (float) number_format($this->mediaConstante - $media, 2);
         }
     }
+
+    public function getNotaDaProva1()
+    {
+        return $this->notaDaProva1;
+    }
+
+    public function getNotaDaProva2()
+    {
+        return $this->notaDaProva2;
+    }
+
+    public function getNomeDoAluno()
+    {
+        return $this->nome;
+    }
+
+    public function getNotaDoTrabalho()
+    {
+        return $this->notaDeTrabalho;
+    }
 }
 
 $aluno1 = new AlunosMatriculados(123, "Henrique", 3, 5, 2);
+
 var_dump(
-    $aluno1->calculaMedia(),
-    $aluno1->calculaQuantoPrecisaParaProvaFinal()
+    $aluno1
 );
