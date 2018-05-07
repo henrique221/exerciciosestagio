@@ -30,4 +30,28 @@ class DataTest extends PHPUnit
         $data = new Data(35, 05, 1992);
         $this->assertEquals("01", $data->verificaDia());
     }
+    /**
+     * @test
+     */
+    public function deveRetornarMesPositivoCasoSejaPassadoValorNegativo()
+    {
+        $data = new Data(11, -10, 1992);
+        $this->assertEquals(10, $data->verificaMes());
+    }
+    /**
+     * @test
+     */
+    public function deveRetornar01CasoMesSejaMaiorQue12()
+    {
+        $data = new Data(11, 13, 1992);
+        $this->assertEquals("01", $data->verificaMes());
+    }
+    /**
+     * @test
+     */
+    public function deveRetornarMesComZeroAEsquerdaCasoSejaMenorQue10()
+    {
+        $data = new Data(11, 3, 1992);
+        $this->assertEquals("03", $data->verificaMes());
+    }
 }

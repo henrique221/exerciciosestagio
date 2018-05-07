@@ -25,36 +25,21 @@ class Data
 
         return (string)$this->dia;
     }
-    public function getDia()
-    {
-        return $this->dia;
-    }
 
-    public function verificaMes($mes)
+    public function verificaMes()
     {
-        if ($mes <= -1) {
-            $mes = $mes * -1;
+        if ($this->mes <= -1) {
+            $this->mes = $this->mes * -1;
         }
-        if ($mes == 0){
-            return "Mês invalido";
+        if ($this->mes < 10){
+            $this->mes = sprintf("0%u", (string)$this->mes);
         }
-
-        switch ($mes) {
-            case ($mes > 12):
-                return "Mes inexistente";
-            case ($mes < 10):
-                $this->mes = sprintf("0%u",(string)$mes);
-                return $this->mes;
-            case ($mes >= 10):
-                $this->mes = (string)$mes;
-                break;
+        if ($this->mes > 12){
+            $this->mes = "01";
         }
-    }
-    public function getMes()
-    {
-        return $this->mes;
+        return (string) $this->mes;
     }
 }
 
-$data = new Data(-20, 5, 2018);
-var_dump($data->verificaDia(), $data->getMes(), $data->ano);
+$data = new Data(25, -3, 2018);
+var_dump($data->verificaDia(), $data->verificaMes(), $data->ano);
