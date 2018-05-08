@@ -101,6 +101,6 @@ class DataTest extends PHPUnit
     {
         $data1 = new Data(3, 5, 1992);
         $data2 = new Data(3, 5, 1992);
-        $this->assertTrue($data1->comparaDatas($data2->data));
+        $this->assertEquals(0, $data1->comparaDatas($data2->data));
     }
 }

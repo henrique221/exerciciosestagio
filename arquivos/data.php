@@ -59,10 +59,10 @@ class Data
     public function comparaDatas($data2)
     {
         if ($this->data == $data2){
-            return true;
+            return 0;
         }
         else{
-            return false;
+            return 1;
         }
     }
 }
