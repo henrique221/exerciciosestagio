@@ -34,12 +34,20 @@ class Data
         if ($this->mes < 10){
             $this->mes = sprintf("0%u", (string)$this->mes);
         }
-        if ($this->mes > 12){
+        if ($this->mes > 12 || $this->mes == 0){
             $this->mes = "01";
         }
         return (string) $this->mes;
     }
+
+    public function verificaAno()
+    {
+        if ($this->ano > 9999 || $this->ano < 1000){
+            $this->ano = "0001";
+        }
+        return (string) $this->ano;
+    }
 }
 
 $data = new Data(25, -3, 2018);
-var_dump($data->verificaDia(), $data->verificaMes(), $data->ano);
+var_dump($data->verificaDia(), $data->verificaMes(), $data->verificaAno());

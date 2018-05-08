@@ -13,6 +13,7 @@ class DataTest extends PHPUnit
     {
         $data = new Data(-11, 05, 1992);
         $this->assertEquals(11, $data->verificaDia());
+        $this->assertInternalType("string", $data->verificaMes());
     }
     /**
      * @test
@@ -48,6 +49,7 @@ class DataTest extends PHPUnit
     {
         $data = new Data(11, 13, 1992);
         $this->assertEquals("01", $data->verificaMes());
+        $this->assertInternalType("string", $data->verificaMes());
     }
     /**
      * @test
@@ -56,5 +58,32 @@ class DataTest extends PHPUnit
     {
         $data = new Data(11, 3, 1992);
         $this->assertEquals("03", $data->verificaMes());
+        $this->assertInternalType("string", $data->verificaMes());
+    }
+    /**
+     * @test
+     */
+    public function deveRetornar01CasoMesSejaIgualAZero()
+    {
+        $data = new Data(3, 0, 1992);
+        $this->assertEquals("01", $data->verificaMes());
+        $this->assertInternalType("string", $data->verificaMes());
+    }
+    /**
+     * @test
+     */
+    public function deveRetornar0001CasoOAnoForMaiorQue9999()
+    {
+        $data = new Data(3, 5, 10000);
+        $this->assertEquals("0001", $data->verificaAno());
+        $this->assertInternalType("string", $data->verificaAno());
+    }
+    /**
+     * @test
+     */
+    public function deveRetornar0001CasoAnoForMenorQue1000()
+    {
+        $data = new Data(3,5,999);
+        $this->assertEquals("0001", $data->verificaAno());
     }
 }
