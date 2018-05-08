@@ -47,7 +47,13 @@ class Data
         }
         return (string) $this->ano;
     }
+
+    public function geraData()
+    {
+        $data = sprintf("%s/%s/%s", $this->verificaDia(), $this->verificaMes(), $this->verificaAno());
+        return $data;
+    }
 }
 
 $data = new Data(25, -3, 2018);
-var_dump($data->verificaDia(), $data->verificaMes(), $data->verificaAno());
+var_dump($data->verificaDia(), $data->verificaMes(), $data->verificaAno(), $data->geraData());

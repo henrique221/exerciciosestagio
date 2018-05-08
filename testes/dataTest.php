@@ -86,4 +86,12 @@ class DataTest extends PHPUnit
         $data = new Data(3,5,999);
         $this->assertEquals("0001", $data->verificaAno());
     }
+    /**
+     * @test
+     */
+    public function deveRetornarADataCompletaNoFormatoDDMMAAA()
+    {
+        $data = new Data(3, 5, 2018);
+        $this->assertEquals("03/05/2018", $data->geraData());
+    }
 }
