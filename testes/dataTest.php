@@ -21,6 +21,7 @@ class DataTest extends PHPUnit
     {
         $data = new Data(8, 05, 1992);
         $this->assertEquals("08", $data->verificaDia());
+        $this->assertInternalType("string", $data->verificaMes());
     }
     /**
      * @test
@@ -29,6 +30,7 @@ class DataTest extends PHPUnit
     {
         $data = new Data(35, 05, 1992);
         $this->assertEquals("01", $data->verificaDia());
+        $this->assertInternalType("string", $data->verificaMes());
     }
     /**
      * @test
@@ -36,7 +38,8 @@ class DataTest extends PHPUnit
     public function deveRetornarMesPositivoCasoSejaPassadoValorNegativo()
     {
         $data = new Data(11, -10, 1992);
-        $this->assertEquals(10, $data->verificaMes());
+        $this->assertEquals("10", $data->verificaMes());
+        $this->assertInternalType("string", $data->verificaMes());
     }
     /**
      * @test
