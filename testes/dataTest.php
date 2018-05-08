@@ -99,8 +99,26 @@ class DataTest extends PHPUnit
      */
     public function deveCompararDuasDatasEVerificarSeAsDuasDatasSaoIguais()
     {
-        $data1 = new Data(3, 5, 1992);
+        $data = new Data(3, 5, 1992);
         $data2 = new Data(3, 5, 1992);
-        $this->assertEquals(0, $data1->comparaDatas($data2->data));
+        $this->assertEquals(0, $data->comparaDatas($data2));
+    }
+    /**
+     * @test
+     */
+    public function deveCompararAsDuasDatasERetornar1CasoADataCorrenteForMaiorQueADoParametro()
+    {
+        $data = new Data(3, 5, 1992);
+        $data2 = new Data(3, 2, 1992);
+        $this->assertEquals(1, $data->comparaDatas($data2));
+    }
+     /**
+     * @test
+     */
+    public function deveCompararAsDuasDatasERetornar1NegativoCasoADataDoParametroForMaiorQueADataCorrente()
+    {
+        $data = new Data(3, 5, 1992);
+        $data2 = new Data(3, 6, 1992);
+        $this->assertEquals(-1, $data->comparaDatas($data2));
     }
 }

@@ -58,11 +58,16 @@ class Data
 
     public function comparaDatas($data2)
     {
-        if ($this->data == $data2){
+        if ($this->data == $data2->data){
             return 0;
         }
         else{
-            return 1;
+            if ($this->dia > $data2->dia || $this->mes > $data2->mes || $this->ano > $data2->ano){
+                return 1;
+            }
+            else {
+                return -1;
+            }
         }
     }
 }
