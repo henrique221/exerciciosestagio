@@ -4,12 +4,14 @@ class Data
     public $dia;
     public $mes;
     public $ano;
+    public $data;
 
     public function __construct($dia, $mes, $ano)
     {
         $this->dia = $dia;
         $this->mes = $mes;
         $this->ano = $ano;
+        $this->data = $this->geraData();
     }
     public function verificaDia()
     {
@@ -53,7 +55,15 @@ class Data
         $data = sprintf("%s/%s/%s", $this->verificaDia(), $this->verificaMes(), $this->verificaAno());
         return $data;
     }
+
+    public function comparaDatas($data2)
+    {
+        if ($this->data == $data2){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
 
-$data = new Data(25, -3, 2018);
-var_dump($data->verificaDia(), $data->verificaMes(), $data->verificaAno(), $data->geraData());

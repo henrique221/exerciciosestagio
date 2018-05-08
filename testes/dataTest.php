@@ -94,4 +94,13 @@ class DataTest extends PHPUnit
         $data = new Data(3, 5, 2018);
         $this->assertEquals("03/05/2018", $data->geraData());
     }
+    /**
+     * @test
+     */
+    public function deveCompararDuasDatasEVerificarSeAsDuasDatasSaoIguais()
+    {
+        $data1 = new Data(3, 5, 1992);
+        $data2 = new Data(3, 5, 1992);
+        $this->assertTrue($data1->comparaDatas($data2->data));
+    }
 }
