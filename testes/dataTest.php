@@ -108,8 +108,8 @@ class DataTest extends PHPUnit
      */
     public function deveCompararAsDuasDatasERetornar1CasoADataCorrenteForMaiorQueADoParametro()
     {
-        $data = new Data(3, 5, 1992);
-        $data2 = new Data(3, 2, 1992);
+        $data = new Data(3, 6, 1993);
+        $data2 = new Data(3, 5, 1992);
         $this->assertEquals(1, $data->comparaDatas($data2));
     }
      /**
