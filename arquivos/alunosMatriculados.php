@@ -17,13 +17,13 @@ class AlunosMatriculados
         $this->notaDeTrabalho = $notaDeTrabalho;
     }
 
-    public function calculaMedia()
+    public function calcularMedia()
     {
         $media = (($this->notaDaProva1 * 2.5) + ($this->notaDaProva2 * 2.5) + ($this->notaDeTrabalho * 2)) / 7;
         return (float) number_format($media, 2);
     }
 
-    public function calculaQuantoPrecisaParaProvaFinal()
+    public function calcularNotaNecessariaParaProvaFinal()
     {
         $media = $this->calculaMedia();
 
