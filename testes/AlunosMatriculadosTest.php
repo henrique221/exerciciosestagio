@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase as PHPUnit;
 
-require_once './arquivos/alunosMatriculados.php';
+require_once './arquivos/AlunosMatriculados.php';
 
 class AlunosMatriculadosTest extends PHPUnit
 {
@@ -12,7 +12,7 @@ class AlunosMatriculadosTest extends PHPUnit
     public function deveRetornarAMediaDoAluno()
     {
         $aluno = new AlunosMatriculados(1231454, "Henrique", 10, 10, 10);
-        $this->assertEquals(10, $aluno->calculaMedia());
+        $this->assertEquals(10, $aluno->calcularMedia());
     }
     /**
      * @test
@@ -20,7 +20,7 @@ class AlunosMatriculadosTest extends PHPUnit
     public function deveRetornarZeroQuandoNaoNecessitaMaisNotaNaProvaFinal()
     {
         $aluno = new AlunosMatriculados(1231454, "Henrique", 10, 10, 10);
-        $this->assertEquals(0, $aluno->calculaQuantoPrecisaParaProvaFinal());
+        $this->assertEquals(0, $aluno->calcularNotaNecessariaParaProvaFinal());
     }
     /**
      * @test
@@ -28,7 +28,7 @@ class AlunosMatriculadosTest extends PHPUnit
     public function deveRetornarQuantosPontosNecessitaNaProvaFinal()
     {
         $aluno = new AlunosMatriculados(12324543, "Henrique", 3, 5, 2);
-        $this->assertEquals(2.57, $aluno->calculaQuantoPrecisaParaProvaFinal());
+        $this->assertEquals(2.57, $aluno->calcularNotaNecessariaParaProvaFinal());
     }
     /**
      * @test

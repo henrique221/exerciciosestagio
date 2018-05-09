@@ -25,7 +25,7 @@ class AlunosMatriculados
 
     public function calcularNotaNecessariaParaProvaFinal()
     {
-        $media = $this->calculaMedia();
+        $media = $this->calcularMedia();
 
         if($media > $this->mediaConstante){
             return 0;
@@ -55,9 +55,3 @@ class AlunosMatriculados
         return $this->notaDeTrabalho;
     }
 }
-
-$aluno1 = new AlunosMatriculados(123, "Henrique", 3, 5, 2);
-
-var_dump(
-    $aluno1
-);
