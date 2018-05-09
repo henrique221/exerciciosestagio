@@ -101,7 +101,3 @@ class Data
         return $resultado;
     }
 }
-
-$data = new Data(5,5,1995);
-$data2 = new Data(3,5,1995);
-var_dump($data->data, $data->comparaDatas($data2), $data->mes, $data2->mes);
