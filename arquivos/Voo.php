@@ -4,28 +4,42 @@ class Voo
 {
     public $numeroVoo;
     public $data;
-    public $vagas = 100;
+    public $vagas;
 
     public function __construct()
     {
         $data = $this->data;
-        $vagas = $this->vagas;
+        $vagas = range(0, 100);
+        $this->vagas = $vagas;
         $numeroVoo = $this->numeroVoo;
     }
 
     public function setDataEHorario($d, $m, $Y, $H, $i, $s)
     {
         $format = "d/m/Y H:i:s";
-        $dataVoo = DateTime::createFromFormat($format, sprintf("$d/$m/$Y $H:$i:$s"));
+
+        if ($s < 10) {
+            $s = sprintf("0%u", (string)$s);
+        }
+
+        $dataVoo = DateTime::createFromFormat($format, sprintf("%s/%s/%s %s:%s:%s", $d, $m, $Y, $H, $i, $s));
         $this->data = $dataVoo->format($format);
 
         return $this->data;
     }
+
+    public function setNumeroDoVoo($numero)
+    {
+        $this->numeroVoo = $numero;
+    }
+
+    public function ocuparAssento()
+    {
+        
+    }
 }
 
 $voo = new Voo;
-$voo->setDataEHorario('11', '05', '2019', '15', '20', '00');
-
 var_dump(
-    $voo
+    $voo->vagas[50] = "ocupado"
 );

@@ -11,8 +11,29 @@ class DataTest extends PHPUnit
      */
     public function deveRetornarADataEHorarioDoVoo()
     {
-        $voo1 = new Voo;
-        $voo1->setDataEHorario(10, 10, 2018, 10, 10, 10);
-        $this->assertEquals("10/10/2018 10:10:10", $voo1->data);
+        $voo = new Voo;
+        $voo->setDataEHorario(10, 1, 2018, 10, 10, 0);
+        $this->assertEquals("10/01/2018 10:10:00", $voo->data);
+    }
+    /**
+     * @test
+     */
+
+    public function deveRetornarONumeroDoVoo()
+    {
+        $voo = new Voo;
+        $voo->setNumeroDoVoo(10);
+        $this->assertEquals(10, $voo->numeroVoo);
+    }
+
+    /**
+     * @test
+     */
+    public function deveOcuparUmaCadeiraERetornarVerdadeiroCasoACadeiraAindaNaoEstiverOcupada()
+    {
+        $voo = new Voo;
+        $numero = $voo->setNumeroDoVoo(10);
+        $data = $voo->setDataEHorario(10, 1, 2018, 10, 10, 0);
+        $this->assertTrue($voo->ocuparAssento($data, $numero));
     }
 }
