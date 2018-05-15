@@ -32,8 +32,7 @@ class DataTest extends PHPUnit
     public function deveOcuparUmaCadeiraERetornarVerdadeiroCasoACadeiraAindaNaoEstiverOcupada()
     {
         $voo = new Voo;
-        $numero = $voo->setNumeroDoVoo(10);
-        $data = $voo->setDataEHorario(10, 1, 2018, 10, 10, 0);
-        $this->assertTrue($voo->ocuparAssento($data, $numero));
+        $numeroVoo = $voo->setNumeroDoVoo(9);
+        $this->assertTrue($voo->ocuparAssento($numeroVoo, 10));
     }
 }

@@ -9,7 +9,7 @@ class Voo
     public function __construct()
     {
         $data = $this->data;
-        $vagas = range(0, 100);
+        $vagas = array_map(function() { return true; }, range(0, 100) );
         $this->vagas = $vagas;
         $numeroVoo = $this->numeroVoo;
     }
@@ -33,13 +33,14 @@ class Voo
         $this->numeroVoo = $numero;
     }
 
-    public function ocuparAssento()
+    public function ocuparAssento($numeroVoo, $numero)
     {
-        
+        if ($numeroVoo != $this->numeroVoo) {
+            if ($this->vagas[$numero] == true) {
+                $this->vagas[$numero] = false;
+                return true;
+            }
+        }
+        return false;
     }
 }
-
-$voo = new Voo;
-var_dump(
-    $voo->vagas[50] = "ocupado"
-);
